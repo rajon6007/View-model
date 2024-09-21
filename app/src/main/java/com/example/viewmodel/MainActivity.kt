@@ -26,6 +26,11 @@ private lateinit var binding : ActivityMainBinding
             binding.countBtn2.setOnClickListener {
                 counterViewModel.decrement()
                 binding.countTxt.text = counterViewModel.counter.toString()
+
+                binding.resetBtn.setOnClickListener {
+                    counterViewModel.reset()
+                    binding.countTxt.text = counterViewModel.counter.toString()
+                }
             }
         }
 
