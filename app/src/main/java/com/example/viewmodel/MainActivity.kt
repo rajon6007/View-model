@@ -17,19 +17,19 @@ private lateinit var binding : ActivityMainBinding
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.countTxt.text = counterViewModel.counter.toString()
+        counterViewModel.counter.observe(this) {  binding.countTxt.text = it.toString() }
 
         binding.countBtn.setOnClickListener {
             counterViewModel.increment()
-            binding.countTxt.text = counterViewModel.counter.toString()
+
 
             binding.countBtn2.setOnClickListener {
                 counterViewModel.decrement()
-                binding.countTxt.text = counterViewModel.counter.toString()
+
 
                 binding.resetBtn.setOnClickListener {
                     counterViewModel.reset()
-                    binding.countTxt.text = counterViewModel.counter.toString()
+
                 }
             }
         }
